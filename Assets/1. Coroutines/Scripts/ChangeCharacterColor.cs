@@ -3,30 +3,25 @@ using System.Collections;
 
 public class ChangeCharacterColor : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
-    public Color targetColor = Color.red;
-    public float colorDuration = 2f;
-
-    public IEnumerator ChangeColor()
+    private SpriteRenderer spriteRenderer;
+    private Color startColor;  
+    private void Start()
     {
-        Color startColor = spriteRenderer.color;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        startColor = spriteRenderer.color;
+    }
+
+    public IEnumerator ChangeColor(Color targetColor, float changeDuration)
+    {
         float timer = 0f;
 
-        while (timer < colorDuration)
+        // Change the color over time
+        while (timer < changeDuration)
         {
             timer += Time.deltaTime;
-
-            float t = timer / colorDuration;
-
-            spriteRenderer.color = Color.Lerp(
-                startColor,
-                targetColor,
-                t
-            );
-
+            float t = timer / changeDuration;
+            spriteRenderer.color = Color.Lerp(startColor, targetColor, t); // Interpolate between the start and target colors
             yield return null;
         }
-
-        spriteRenderer.color = targetColor;
     }
 }

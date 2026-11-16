@@ -12,14 +12,11 @@ public class CoroutineController : MonoBehaviour
         // Start the main coroutine here
     }
 
-    IEnumerator PlaySequence()
-    {
+    // Main coroutine that orchestrates the sequence of effects
+    
         // 1. Move the character
-        
         // 2. Change the character's color
-
         // 3. Rotate the character
 
         // All effects completed!
-    }
 }
