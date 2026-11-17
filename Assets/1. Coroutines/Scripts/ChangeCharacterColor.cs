@@ -7,7 +7,7 @@ public class ChangeCharacterColor : MonoBehaviour
     private Color startColor;  
     private void Start()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         startColor = spriteRenderer.color;
     }
 
